@@ -1144,6 +1144,9 @@ L_eul2xf:
 	u = -d__ * sin(locang[1]);
 	v = cos(locang[1]);
     }
+    printf("ca = %.17g  sa = %.17g\n u = %.17g  v = %.17g\n", ca, sa, u, v);
+    printf("locang 2nd half  %.17g %.17g %.17g\n",
+           locang[3], locang[4], locang[5]);
 
 /*                            t */
 /*     Next we compute dR/dt R.  Recall from the derivation above */
@@ -1197,7 +1200,16 @@ L_eul2xf:
     drdtrt[0] = 0.;
     drdtrt[4] = 0.;
     drdtrt[8] = 0.;
+    printf("drdtrt = [%.17g %.17g %.17g\n", drdtrt[0], drdtrt[3], drdtrt[6]);
+    printf("          %.17g %.17g %.17g\n", drdtrt[1], drdtrt[4], drdtrt[7]);
+    printf("          %.17g %.17g %.17g]\n", drdtrt[2], drdtrt[5], drdtrt[8]);
+    printf("r__ = [%.17g %.17g %.17g\n", r__[0], r__[3], r__[6]);
+    printf("       %.17g %.17g %.17g\n", r__[1], r__[4], r__[7]);
+    printf("       %.17g %.17g %.17g]\n", r__[2], r__[5], r__[8]);
     mxm_(drdtrt, r__, drdt);
+    printf("drdt = [%.17g %.17g %.17g\n", drdt[0], drdt[3], drdt[6]);
+    printf("        %.17g %.17g %.17g\n", drdt[1], drdt[4], drdt[7]);
+    printf("        %.17g %.17g %.17g]\n", drdt[2], drdt[5], drdt[8]);
     for (j = 1; j <= 3; ++j) {
 	for (i__ = 1; i__ <= 3; ++i__) {
 	    xform[(i__1 = i__ + j * 6 - 7) < 36 && 0 <= i__1 ? i__1 : s_rnge(

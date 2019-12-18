@@ -3,15 +3,15 @@
 
 int main()
 {
-     SpiceDouble rmat[3][3];
+     SpiceDouble rmat[6][6];
      furnsh_c("/home/brandon/skyfield/moon_080317.tf");
      furnsh_c("/home/brandon/skyfield/moon_pa_de421_1900-2050.bpc");
-     pxform_c("J2000", "MOON_PA", 0.0, rmat);
+     sxform_c("J2000", "MOON_PA", -11150.0 * 3600.0 * 24.0, rmat);
      printf(
-          "%.16f %.16f %.16f\n%.16f %.16f %.16f\n%.16f %.16f %.16f\n",
-          rmat[0][0], rmat[0][1], rmat[0][2],
-          rmat[1][0], rmat[1][1], rmat[1][2],
-          rmat[2][0], rmat[2][1], rmat[2][2]
+          "%.17g %.17g %.17g\n%.17g %.17g %.17g\n%.17g %.17g %.17g\n",
+          rmat[3][0], rmat[3][1], rmat[3][2],
+          rmat[4][0], rmat[4][1], rmat[4][2],
+          rmat[5][0], rmat[5][1], rmat[5][2]
           );
      return 0;
 }
