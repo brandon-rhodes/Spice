@@ -210,7 +210,9 @@
 /*     We do this because we've always done this. */
 
     d__1 = twopi_();
+    printf("eulang[2] before = %.18f  twopi = %.18f\n", eulang[2], d__1);
     eulang[2] = d_mod(&eulang[2], &d__1);
+    printf("eulang[2] after = %.18f\n", eulang[2]);
     chkout_("PCKE02", (ftnlen)6);
     return 0;
 } /* pcke02_ */

@@ -1,1 +1,7 @@
-build/
+/CMakeCache.txt
+/CMakeFiles/
+/Makefile
+/a.out
+/build/
+/cmake_install.cmake
+/libSpice.so

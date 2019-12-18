@@ -332,6 +332,10 @@ static integer c__130 = 130;
 		chkout_("PCKMAT", (ftnlen)6);
 		return 0;
 	    }
+            printf("@@ %.16f %.16f %.16f %.16f %.16f %.16f\n",
+                   eulang[0], eulang[1], eulang[2],
+                   eulang[3], eulang[4], eulang[5]
+                   );
 
 /*           From the PCK type two file the Euler angles are */
 /*           retrieved in a particular order.  The routine to */

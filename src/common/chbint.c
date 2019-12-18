@@ -282,6 +282,7 @@
 /*     Transform X to S and initialize temporary variables. */
 
     s = (*x - x2s[0]) / x2s[1];
+    printf("chbint s = %.16f\n", s);
     s2 = s * 2.;
     j = *degp + 1;
     w[0] = 0.;
@@ -295,12 +296,14 @@
 	w[2] = w[1];
 	w[1] = w[0];
 	w[0] = cp[j - 1] + (s2 * w[1] - w[2]);
+        printf("w[0] = %.16g\n", w[0]);
 	dw[2] = dw[1];
 	dw[1] = dw[0];
 	dw[0] = w[1] * 2. + dw[1] * s2 - dw[2];
 	--j;
     }
     *p = cp[0] + (s * w[0] - w[1]);
+    printf("*p final = %.16g\n", *p);
     *dpdx = w[0] + s * dw[0] - dw[1];
 
 /*     Scale the derivative by 1/X2S(2) so that we have the derivative */
